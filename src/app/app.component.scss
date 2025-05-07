@@ -1,0 +1,85 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+header {
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(74, 144, 226, 0.1);
+    }
+
+    &.active {
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  background-color: var(--bg-primary);
+  padding-bottom: 50px;
+  transition: background-color 0.3s ease;
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}

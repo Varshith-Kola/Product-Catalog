@@ -1,59 +1,125 @@
-# ProductApp
+# Product App - Angular Technical Assessment
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+A clean, responsive Angular application for displaying product information with detailed documentation.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Product Listing**: View all products in a responsive grid
+- **Product Details**: See detailed information about each product
+- **Theme Toggle**: Switch between light and dark modes
+- **Responsive Design**: Works on devices of all sizes
+- **Accessibility Features**: ARIA attributes and keyboard navigation
+- **Error Handling**: Graceful image load error recovery
+- **Image Preloading**: Improved performance with image caching
 
-```bash
-ng serve
+## Project Structure
+
+The project follows Angular best practices with a clean, modular structure:
+
+```
+/src/app/
+│
+├── components/                # UI components
+│   ├── product-card/          # Reusable product card component 
+│   ├── product-list/          # Product listing page
+│   └── product-detail/        # Product details page
+│
+├── services/                  # Application services
+│   ├── product.service.ts     # Product data management
+│   └── image-cache.service.ts # Image preloading & caching
+│
+├── app.component.*            # Root application component
+└── app.routes.ts              # Application routing
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Key Components
 
-## Code scaffolding
+### 1. ProductCardComponent
+- Reusable card for displaying product summaries
+- Handles image errors with fallbacks
+- Emits selection events to parent
+- Provides direct navigation to detail view
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 2. ProductListComponent
+- Displays grid of product cards
+- Manages loading states
+- Handles navigation to product details
 
-```bash
-ng generate component component-name
-```
+### 3. ProductDetailComponent
+- Shows comprehensive product information
+- Handles route parameter validation
+- Provides error handling for invalid IDs or missing products
+- Navigation back to product list
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Services
 
-```bash
-ng generate --help
-```
+### 1. ProductService
+- Manages product data
+- Simulates API calls with RxJS Observables
+- Provides methods to get all products or specific product by ID
+- Demonstrates proper error handling
 
-## Building
+### 2. ImageCacheService
+- Preloads product images for better user experience
+- Implements caching to reduce network requests
+- Handles image loading errors gracefully
+- Provides server-side rendering compatibility
 
-To build the project run:
+## Technical Implementation
 
-```bash
-ng build
-```
+### 1. Angular Features Used
+- Standalone components
+- Angular Router with parameterized routes
+- Component Input/Output for communication
+- RxJS Observables for async operations
+- Angular SSR compatibility
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 2. UX Enhancements
+- Dark mode toggle with system preference detection
+- Theme persistence using localStorage
+- Loading indicators for async operations
+- Responsive grid layout
+- Accessible UI elements
 
-## Running unit tests
+## Running the Project
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. **Install dependencies**
+   ```
+   npm install
+   ```
 
-```bash
-ng test
-```
+2. **Start development server**
+   ```
+   ng serve
+   ```
 
-## Running end-to-end tests
+3. **Build for production**
+   ```
+   ng build
+   ```
 
-For end-to-end (e2e) testing, run:
+## Meeting Assessment Requirements
 
-```bash
-ng e2e
-```
+This project fulfills all the technical assessment requirements:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. **Project Setup** ✓
+   - Angular CLI project with clean structure
+   - Best practices for organization
 
-## Additional Resources
+2. **Component & Data Binding** ✓
+   - ProductCardComponent with @Input() for product data
+   - @Output() for selection events
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Service & Data Handling** ✓
+   - ProductService for data management
+   - RxJS Observables for async operations
+
+4. **Routing & Navigation** ✓
+   - Angular routing with product list and detail views
+   - Parameter-based navigation
+
+5. **Additional Enhancements** ✓
+   - Dark/Light theme toggle
+   - Accessibility features
+   - Image error handling
+   - Responsive design 

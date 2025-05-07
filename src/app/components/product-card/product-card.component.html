@@ -1,0 +1,11 @@
+<div class="product-card" tabindex="0" role="article" [attr.aria-labelledby]="'product-name-' + product.id">
+  <img [src]="product.imageUrl" [alt]="product.name" class="product-image" (error)="handleImageError($event)">
+  <div class="product-info">
+    <h3 id="product-name-{{product.id}}" class="product-name">{{ product.name }}</h3>
+    <p class="product-price" [attr.aria-label]="'Price: ' + product.price + ' dollars'">${{ product.price.toFixed(2) }}</p>
+    <p class="product-description">{{ product.description | slice:0:100 }}{{ product.description.length > 100 ? '...' : '' }}</p>
+    <div class="product-actions">
+      <a [routerLink]="['/products', product.id]" class="view-details" [attr.aria-label]="'View details for ' + product.name">View Details</a>
+    </div>
+  </div>
+</div>

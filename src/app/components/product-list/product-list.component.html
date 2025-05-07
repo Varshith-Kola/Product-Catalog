@@ -1,0 +1,21 @@
+<div class="product-list-container">
+  <h2>Our Product Catalog</h2>
+  
+  <div *ngIf="loading" class="loading-indicator">
+    <div class="spinner"></div>
+    <p>Loading products...</p>
+  </div>
+  
+  <div *ngIf="!loading && products.length === 0" class="no-products">
+    <p>No products available at this time. Please check back later.</p>
+  </div>
+  
+  <div *ngIf="!loading && products.length > 0" class="product-grid">
+    <div *ngFor="let product of products" class="product-item">
+      <app-product-card 
+        [product]="product" 
+        (selected)="onProductSelected($event)">
+      </app-product-card>
+    </div>
+  </div>
+</div>

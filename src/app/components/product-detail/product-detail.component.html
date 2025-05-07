@@ -1,0 +1,28 @@
+<div class="product-detail-container">
+  <div *ngIf="loading" class="loading-indicator" role="status" aria-live="polite">
+    <p>Loading product details...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message" role="alert">
+    <p>{{ errorMessage }}</p>
+    <button (click)="goBack()" class="back-button" aria-label="Return to products page">Back to Products</button>
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && product" class="product-detail" role="main" [attr.aria-labelledby]="'product-title'">
+    <div class="product-image-container">
+      <img [src]="product.imageUrl" [alt]="product.name" class="product-image" (error)="handleImageError($event)">
+    </div>
+    
+    <div class="product-info">
+      <h2 id="product-title" class="product-name">{{ product.name }}</h2>
+      <p class="product-price" [attr.aria-label]="'Price: ' + product.price + ' dollars'">${{ product.price.toFixed(2) }}</p>
+      
+      <div class="product-description">
+        <h3 id="description-heading">Description</h3>
+        <p [attr.aria-labelledby]="'description-heading'">{{ product.description }}</p>
+      </div>
+      
+      <button (click)="goBack()" class="back-button" aria-label="Return to products page">Back to Products</button>
+    </div>
+  </div>
+</div>
